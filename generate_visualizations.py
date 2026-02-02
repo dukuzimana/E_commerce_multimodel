@@ -11,9 +11,9 @@ sns.set_style("whitegrid")
 # Load Data
 # ----------------------------------------------------
 
-users = pd.read_json("users.json")
-products = pd.read_json("products.json")
-transactions = pd.read_json("transactions.json")
+users = pd.read_json("data/users.json")
+products = pd.read_json("data/products.json")
+transactions = pd.read_json("data/transactions.json")
 
 # Load all session chunks
 session_files = glob.glob("data/sessions_*.json")
