@@ -2,7 +2,7 @@
 
 **Course:** AUCA – Big Data Analytics
 **Project Type:** Individual Final Project
-**Student:** Dismas Dukuzimana
+**Student:** 101021 Dukuzimana Dismas
 **Date:** January 2026
 
 ---
@@ -21,29 +21,18 @@ The system leverages:
 
 ## 2. System Architecture
 
-**High-level architecture:**
+he Dataset Generator in Python creates multiple JSON files, including Users, Products, Categories, Sessions, and Transactions.
 
-```
-Dataset Generator (Python)
-        |
-        v
- JSON Files (Users, Products, Categories, Sessions, Transactions)
-        |
-        |-------------------|
-        v                   v
-   MongoDB               HBase
- (Documents)         (Wide-Column)
-        \                 /
-         \               /
-          v             v
-            Apache Spark
-        (Batch Analytics & Integration)
-                |
-                v
-        Visualizations & Insights
-```
+These JSON files can then be stored in two types of databases:
 
----
+MongoDB, which stores the data as documents,
+
+HBase, which stores the data in a wide-column format.
+
+Both MongoDB and HBase feed data into Apache Spark for batch analytics and integration.
+
+Finally, the processed data from Spark is used for visualizations and insights.
+
 
 ## 3. Dataset Description
 
@@ -64,7 +53,6 @@ The dataset is synthetically generated using **dataset_generator.py** and simula
 * Sessions → Cart → Transactions
 * Inventory updates driven by completed transactions
 
----
 
 ## 4. Technology Stack
 
@@ -77,49 +65,62 @@ The dataset is synthetically generated using **dataset_generator.py** and simula
 | Matplotlib / Seaborn   | Data visualization                         |
 | Docker                 | Containerized database deployment          |
 
----
 
 ## 5. Project Structure
 
-```
-AUCA-BigData-Ecommerce-Analytics/
-│
-├── dataset_generator.py
-├── data/
-│   ├── users.json
-│   ├── categories.json
-│   ├── products.json
-│   ├── sessions_0.json
-│   ├── sessions_1.json
-│   └── transactions.json
-│
-├── mongodb/
-│   ├── load_data.py
-│   ├── aggregations.js
-│   └── schema_design.md
-│
-├── hbase/
-│   ├── create_tables.hbase
-│   ├── load_sessions.py
-│   └── sample_queries.hbase
-│
-├── spark/
-│   ├── batch_processing.py
-│   ├── spark_sql_analysis.py
-│   └── integration_queries.py
-│
-├── visualizations/
-│   ├── sales_trends.py
-│   ├── customer_segments.py
-│   └── conversion_funnel.py
-│
-├── report/
-│   └── Technical_Report.pdf
-│
-└── README.md
-```
+The project is named AUCA-BigData-Ecommerce-Analytics. Its main components are organized as follows:
 
----
+dataset_generator.py – the Python script used to generate datasets.
+
+data/ – a folder containing the generated JSON files:
+
+users.json – user data
+
+categories.json – product categories
+
+products.json – product information
+
+sessions_0.json and sessions_1.json – session data split into chunks
+
+transactions.json – transaction records
+
+mongodb/ – contains scripts and documentation for MongoDB:
+
+load_data.py – script to load data into MongoDB
+
+aggregations.js – MongoDB aggregation queries
+
+schema_design.md – document describing MongoDB schema design
+
+hbase/ – contains scripts and queries for HBase:
+
+create_tables.hbase – HBase table creation script
+
+load_sessions.py – script to load session data into HBase
+
+sample_queries.hbase – example HBase queries
+
+spark/ – scripts for Apache Spark processing and analysis:
+
+batch_processing.py – batch processing scripts
+
+spark_sql_analysis.py – Spark SQL queries for analysis
+
+integration_queries.py – scripts for integrating data from multiple sources
+
+visualizations/ – scripts for generating insights and visualizations:
+
+sales_trends.py – sales trend analysis
+
+customer_segments.py – customer segmentation analysis
+
+conversion_funnel.py – conversion funnel analysis
+
+report/ – contains project documentation:
+
+Technical_Report.pdf – final technical report
+
+README.md – project overview and instructions.
 
 ## 6. Part 1: Data Modeling and Storage
 
@@ -164,7 +165,6 @@ AUCA-BigData-Ecommerce-Analytics/
 * Efficient for large-scale, sparse, time-ordered data
 * Fast range scans for user activity streams
 
----
 
 ## 7. Part 2: Data Processing with Apache Spark
 
@@ -184,7 +184,6 @@ AUCA-BigData-Ecommerce-Analytics/
 * SQL-based analytics on DataFrames
 * Joins across users, sessions, and transactions
 
----
 
 ## 8. Part 3: Analytics Integration
 
@@ -207,7 +206,6 @@ AUCA-BigData-Ecommerce-Analytics/
 3. Enrich with engagement metrics
 4. Compute CLV estimates
 
----
 
 ## 9. Part 4: Visualization and Insights
 
@@ -224,7 +222,6 @@ AUCA-BigData-Ecommerce-Analytics/
 * High session engagement strongly correlates with conversion
 * Certain categories show strong seasonal trends
 
----
 
 ## 10. Scalability Considerations
 
@@ -232,7 +229,6 @@ AUCA-BigData-Ecommerce-Analytics/
 * HBase is designed for petabyte-scale time-series data
 * Spark enables distributed computation across clusters
 
----
 
 ## 11. How to Run the Project
 
@@ -255,7 +251,6 @@ spark-submit spark/batch_processing.py
 
 5. Generate visualizations
 
----
 
 ## 12. Limitations and Future Work
 
@@ -263,12 +258,10 @@ spark-submit spark/batch_processing.py
 * Recommendation models can be improved using MLlib
 * Real-time dashboards can be added
 
----
 
 ## 13. Conclusion
 
 This project demonstrates how **multi-model databases and distributed processing** can be effectively combined to solve complex e-commerce analytics problems. Each technology is used where it fits best, resulting in a scalable, flexible, and insightful analytics architecture.
 
----
 
-**End of README**
+**Done by 101021 Dukuzimana Dismas**
